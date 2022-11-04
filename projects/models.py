@@ -2,14 +2,17 @@ from django.db import models
 import json
 
 # Create your models here.
-
+class Todo(models.Model):
+    pass
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
     created = models.DateTimeField()
     modified = models.DateTimeField()
-    todos = models.JSONField()
+    # todos = models.JSONField()
+    description = models.TextField(default="")
+    notes = models.TextField(default="")
 
     def as_json(self):
         print(str(self.title))
