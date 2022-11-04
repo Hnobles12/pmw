@@ -1,6 +1,10 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">[[ message_js ]]</div>
+<div id="app">
+  [[ message_js ]]
+
+  <h1>The number from vue is: [[obj_js.number]]</h1>
+</div>
 
 <script>
   const { createApp } = Vue
@@ -10,6 +14,7 @@
 
     data() {
       return {
+        obj_js: {{obj|safe}},
         message_js: "{{message}}",
       }
     },
