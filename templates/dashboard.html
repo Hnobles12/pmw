@@ -2,11 +2,18 @@
 
 {%block vue_app %}
     <h1>[[title]]</h1>
+    <button class="btn" @click="clicked">Click to change</button>
 {% endblock %}
 
 {% block vue_data %}
+
 title: "Main page",
+title2: "clicked",
+
 {% endblock %}
 
 {% block vue_methods %}
+clicked(){
+    this.title = this.title2;
+},
 {% endblock %}

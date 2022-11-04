@@ -1,10 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-def main(request):
+def dashboard(request):
+    
     ctx = {
     }
-    return render(request, 'main.html', ctx)
+    return render(request, 'dashboard.html', ctx)
 
 
 import json
