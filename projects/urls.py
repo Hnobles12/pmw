@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index)
+    path('', views.main),
+    path('vue_test', views.vue_test),
 ]
