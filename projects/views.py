@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from .models import Project
 
 def index(request):
     ctx = {}
@@ -6,8 +8,16 @@ def index(request):
 
 # Create your views here.
 def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect('/auth/login')
+    
+    projects = Project.objects.all() 
+    # projects = [project.as_json() for project in projects]
     
     ctx = {
+        "projects": projects,
+        # "proj_json": json.dumps([project.as_json() for project in projects])
+        "proj_json": json.dumps([project.as_dict() for project in projects])
     }
     return render(request, 'dashboard.html', ctx)
 
