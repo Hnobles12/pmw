@@ -22,6 +22,13 @@ def dashboard(request):
     return render(request, 'dashboard.html', ctx)
 
 
+def project_view(request, id: int):
+    project = Project.objects.filter(pk=id)
+    print(len(project))
+    ctx = {"project":project[0]}
+    
+    return render(request, 'project_view.html', ctx)
+
 import json
 class Test:
     def __init__(self):
